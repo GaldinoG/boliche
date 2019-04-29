@@ -207,6 +207,28 @@ class ComparaPontos
 	end
 end
 
+# Classe responsável por cada frame do jogo
+# @author Gabriel Galdino, André Alves
+class Main
+    
+	# Construtor
+	# @chama todas as classes da execução do jogo
+    def startGame(nome)
+
+      dificul = PontuacaoNivelPC.new
+      dif = dificul.nivelPontuacao(nome)
+
+      pontos = PontuacaoUsuario.new
+      ptos = pontos.calculaPontuacao(nome)
+
+      compare = ComparaPontos.new
+      compare.calculoPontos(ptos, dif, nome)
+
+    end  
+
+end
+
+
 
 
 nme = SetaJogador.new
