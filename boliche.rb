@@ -12,5 +12,32 @@ class SetaJogador
 	end	    
 end
 
+# Classe responsável pelo nivel de dificuldade do jogo
+# @author Gabriel Galdino, André Alves
+class PontuacaoNivelPC
+
+		# Construtor
+		# @return [number] retorna o nivel de dificuldade
+    	def nivelPontuacao(nome)
+	strNivel = 0
+    		loop do
+				puts "\n#{nome} digite qual nivel de dificuldade deseja jogar(1-Facil, 2- Medio, 3-Dificil):"
+				strNivel = gets.chomp.to_i
+				system("clear")
+				break if strNivel >= 1 && strNivel <= 3
+			end
+
+			case strNivel
+				when 1
+					number = rand(0..100)
+				when 2
+					number = rand(100..200)
+				when 3
+					number = rand(200..300)
+			end
+    		return number
+    	end
+end
+
 nme = SetaJogador.new
 nome = nme.cadastro
