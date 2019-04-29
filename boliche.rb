@@ -227,9 +227,39 @@ class Main
     end  
 
 end
+# Classe responsável por cada frame do jogo
+# @author Gabriel Galdino, André Alves
+class JogarNovamente
+	
+	# Pergunta se jogador deseja jogar novamente
+	# @chama classe Main se for Sim, ou encerra jogo se for Nao
+	def jogarNovamente(nome)
+	again = 0
 
+	loop do
+	  puts("\n\n#{nome} voce deseja jogar novamente: (1-Sim / 2-Nao): ")
+	  again = gets.chomp.to_i
+	  break if again >= 1 && again <= 2
+	end
 
+	case again
+	  when 1
+		system("clear")
+		start = Main.new
+		start.startGame(nome)
+	  when 2
+		abort("Fim do Jogo")
+	end
+	end
 
+end
 
 nme = SetaJogador.new
 nome = nme.cadastro
+
+start = Main.new
+start.startGame(nome)
+
+jgNovo = JogarNovamente.new
+jgNovo.jogarNovamente(nome)
+
