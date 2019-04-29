@@ -187,6 +187,27 @@ class PontuacaoUsuario
 	end
 end
 
+# Classe responsável pela comparação de pontos do jogo
+# @author Gabriel Galdino, André Alves
+class ComparaPontos
+
+	# Construtor
+	# @imprime o resultado final do vencedor
+	def calculoPontos(ptos, dif, nome)
+
+		if ptos > dif
+			puts("\n\nO jogador #{nome} venceu com #{ptos} pontos contra o computador que fez #{dif} pontos!!")
+		elsif dif > ptos
+			puts("\n\nO computador venceu com #{dif} pontos contra #{ptos} do jogador #{nome}!!")
+		else
+			puts("\n\nO jogo empatou!!")
+		end 
+		jgNovo = JogarNovamente.new
+		jgNovo.jogarNovamente(nome)
+	end
+end
+
+
 
 nme = SetaJogador.new
 nome = nme.cadastro
